@@ -11,3 +11,13 @@ var data = {
   },
   entries: []
 };
+
+var userEntries = {};
+var $savedProfiles = localStorage.getItem('user-profile');
+userEntries = JSON.parse($savedProfiles)
+
+window.addEventListener('beforeunload', function (e) {
+  var $profiles = JSON.stringify(userEntries);
+  localStorage.setItem('user-profile', $profiles);
+
+});

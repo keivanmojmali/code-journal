@@ -1,25 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Journal</title>
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-    <div data-view="edit-profile"></div>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Code Journal</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+      <link
+        rel="stylesheet"
+        crossorigin="anonymous"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+      <link rel="stylesheet" href="css/reset.css">
+      <link rel="stylesheet" href="css/layout.css">
+      <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+      <header class="relative">
+        <h1 class="center-align">Code Journal</h1>
+      </header>
+      <main>
+        <div data-view="edit-profile">
+          <form class="flex-center" action="" method="GET" id="userForm">
+            <div class="container">
+              <div class="col-full margin-twenty">
+                <h1 class="header">Edit Profile</h1>
+              </div>
+             <div class="col-half">
+                <img class="full-width" id="placeholder" src="./images/placeholder-image-square.jpg" alt="profile picture">
+              </div>
+              <div class="col-half flex-column">
+                <label for="url" class="form-label">Avatar URL</label>
+                <input type="url" name="url" id="url" required>
+                <label for="username" class="form-label">Username</label>
+                <input type="username" name="username" id="username" minlength="6" maxlength="18" required>
+                <label for="full-name" class="form-label">Full Name</label>
+                <input type="text" name="fullName" id="fullName" required>
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="location" id="location" required>
+              </div>
+              <div class="col-full margin-twenty">
+               <label for="bio" class="form-label">Bio</label>
+                <textarea class="full-width" name="bio" id="bio" cols="10" rows="5"></textarea>
+              </div>
+              <div class="col-full align-end margin-twenty">
+                <button type="submit" class="submit" id="submit">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+      <script src="js/data.js"></script>
+      <script src="js/main.js"></script>
+    </body>
+  </html>
