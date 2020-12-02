@@ -16,9 +16,8 @@ header {
   height: 60px;
 }
 
-.flex {
-  display: flex;
-  flex-wrap: wrap;
+input {
+  height: 8%;
 }
 
 .relative {
@@ -28,15 +27,16 @@ header {
 .flex-center {
   display: flex;
   justify-content: center;
+  align-content: center;
 }
 
 .center-align {
   position: absolute;
-  left: 16.5%;
+  left: 18%;
   top: -15%;
 }
 
-.form-container {
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -44,10 +44,6 @@ header {
 }
 
 .col-full {
-  width: 100%;
-}
-
-.col-half > img {
   width: 100%;
 }
 
@@ -74,11 +70,7 @@ header {
   justify-content: space-evenly;
 }
 
-input {
-  height: 8%;
-}
-
-.full-wide {
+.full-width {
   width: 100%;
 }
 

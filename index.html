@@ -20,17 +20,14 @@
         <h1 class="center-align">Code Journal</h1>
       </header>
       <main>
-
         <div data-view="edit-profile">
-
           <form class="flex-center" action="" method="GET" id="userForm">
-
-            <div class="form-container">
+            <div class="container">
               <div class="col-full margin-twenty">
                 <h1 class="header">Edit Profile</h1>
               </div>
              <div class="col-half">
-                <img id="placeholder" src="./images/placeholder-image-square.jpg" alt="profile picture">
+                <img class="full-width" id="placeholder" src="./images/placeholder-image-square.jpg" alt="profile picture">
               </div>
               <div class="col-half flex-column">
                 <label for="url" class="form-label">Avatar URL</label>
@@ -38,22 +35,20 @@
                 <label for="username" class="form-label">Username</label>
                 <input type="username" name="username" id="username" minlength="6" maxlength="18" required>
                 <label for="full-name" class="form-label">Full Name</label>
-                <input type="text" name="full-name" id="fullName" required>
+                <input type="text" name="fullName" id="fullName" required>
                 <label for="location" class="form-label">Location</label>
                 <input type="text" name="location" id="location" required>
               </div>
-
               <div class="col-full margin-twenty">
                <label for="bio" class="form-label">Bio</label>
-                <textarea class="full-wide" name="bio" id="bio" cols="10" rows="5"></textarea>
+                <textarea class="full-width" name="bio" id="bio" cols="10" rows="5"></textarea>
               </div>
               <div class="col-full align-end margin-twenty">
-                <button class="submit">Save</button>
+                <button type="submit" class="submit" id="submit">Save</button>
               </div>
             </div>
           </form>
         </div>
-
       </main>
       <script src="js/data.js"></script>
       <script src="js/main.js"></script>
