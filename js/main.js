@@ -22,7 +22,8 @@ document.addEventListener('submit', function (e) {
   userEntries = values;
   $contact.reset();
   $imgPlace.src = './images/placeholder-image-square.jpg';
-
+  profile(values);
+  dataView('profile');
 });
 
 
