@@ -12,6 +12,8 @@ var data = {
   entries: []
 };
 
+var $profileMake = document.querySelector('#edit-profile');
+var $profileShow = document.querySelector('#profile');
 var $userHeader = document.querySelector('#userHeader');
 var $userPic = document.querySelector('#userPhoto');
 var $userSmall = document.querySelector('#userSmall');
@@ -35,3 +37,13 @@ function profile(user) {
       $userBio.textContent = user.bio;
 
     }
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  if(userEntries === null) {
+    $profileMake.className = ' ';
+    $profileShow.className = 'hidden';
+  } else {
+    $profileMake.className = 'hidden';
+    $profileShow.className = '';
+  }
+})
