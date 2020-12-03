@@ -1,8 +1,12 @@
-var $avatarUrl = document.querySelector('#url');
 var $imgPlace = document.querySelector('#placeholder');
+var $avatarUrl = document.querySelector('#url');
+var $userInput = document.querySelector('#username');
+var $nameInput = document.querySelector('#fullName');
+var $locationInput = document.querySelector('#location');
+var $bioInput = document.querySelector('#bio');
 var $contact = document.querySelector('#userForm');
 var $allDivs = document.querySelectorAll('div');
-var $dataView = document.querySelectorAll('[data-view]');
+var $dataView = document.querySelectorAll('div[data-view]');
 var $profileMake = document.querySelector('#edit-profile');
 var $profileShow = document.querySelector('#profile');
 var $userHeader = document.querySelector('#userHeader');
@@ -10,6 +14,8 @@ var $userPic = document.querySelector('#userPhoto');
 var $userSmall = document.querySelector('#userSmall');
 var $userLocation = document.querySelector('#userLocation');
 var $userBio = document.querySelector('#profileBio');
+var $profileButton = document.querySelector('#profileButton');
+
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -30,19 +36,29 @@ document.addEventListener('submit', function (e) {
   $imgPlace.src = './images/placeholder-image-square.jpg';
   profile(values);
   dataView('profile');
+  $profileButton.className = '';
 });
 
 
 function dataView(string) {
   for(var i = 0; i < $dataView.length; i++) {
-    if($dataView[i].id !== string) {
+    if($dataView[i].getAttribute('data-view') !== string) {
       $dataView[i].className = 'hidden';
   } else {
       $dataView[i].className = '';
   }
+    if ($dataView[i] !== 'edit-profile') {
+    $imgPlace.src = userEntries.url;
+    $avatarUrl.value = userEntries.url;
+    $userInput.value = userEntries.username;
+    $nameInput.value = userEntries.fullName;
+    $locationInput.value = userEntries.location;
+    $bioInput.textContent = userEntries.bio;
+    }
   data.view = name;
 }
 }
+
 
 function profile(user) {
   $userHeader.textContent = user.username;
@@ -56,10 +72,20 @@ function profile(user) {
 document.addEventListener('DOMContentLoaded', function (e) {
   if (userEntries === null) {
     $profileMake.className = ' ';
+    $profileButton.className = 'hidden';
     $profileShow.className = 'hidden';
   } else {
     $profileMake.className = 'hidden';
     $profileShow.className = '';
     profile(userEntries);
+  }
+})
+
+document.addEventListener('click', function(e) {
+  var localData = e.target.getAttribute('data-view');
+  if(localData !== 'profile' && localData !== 'edit-profile') {
+    return;
+  } else {
+    dataView(localData);
   }
 })
