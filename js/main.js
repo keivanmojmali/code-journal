@@ -15,7 +15,7 @@ var $userSmall = document.querySelector('#userSmall');
 var $userLocation = document.querySelector('#userLocation');
 var $userBio = document.querySelector('#profileBio');
 var $profileButton = document.querySelector('#profileButton');
-
+var $editProfileButton = document.querySelector('#editProfileButton');
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
