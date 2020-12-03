@@ -45,5 +45,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
   } else {
     $profileMake.className = 'hidden';
     $profileShow.className = '';
+    profile(userEntries);
   }
 })
