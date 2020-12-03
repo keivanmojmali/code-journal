@@ -39,7 +39,7 @@ document.addEventListener('submit', function (e) {
   $profileButton.className = '';
 });
 
-// var $dataView = document.querySelectorAll('div[data-view]');
+
 function dataView(string) {
   for(var i = 0; i < $dataView.length; i++) {
     if($dataView[i].getAttribute('data-view') !== string) {
