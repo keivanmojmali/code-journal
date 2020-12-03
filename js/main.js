@@ -75,3 +75,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
     profile(userEntries);
   }
 })
+
+document.addEventListener('click', function(e) {
+  if(e.target.id !== 'profile' || e.target.id !== 'edit-profile') {
+    console.dir(e.target);
+    return;
+  } else {
+    console.dir(e.target);
+    dataView(e.target.id);
+  }
+})
