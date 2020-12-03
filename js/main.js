@@ -1,5 +1,9 @@
-var $avatarUrl = document.querySelector('#url');
 var $imgPlace = document.querySelector('#placeholder');
+var $avatarUrl = document.querySelector('#url');
+var $userInput = document.querySelector('#username');
+var $nameInput = document.querySelector('#fullName');
+var $locationInput = document.querySelector('#location');
+var $bioInput = document.querySelector('#bio');
 var $contact = document.querySelector('#userForm');
 var $allDivs = document.querySelectorAll('div');
 var $dataView = document.querySelectorAll('[data-view]');
@@ -40,6 +44,14 @@ function dataView(string) {
   } else {
       $dataView[i].className = '';
   }
+    if ($dataView[i].id !== 'edit-profile') {
+    $imgPlace.src = userEntries.url;
+    $avatarUrl.value = userEntries.url;
+    $userInput.value = userEntries.username;
+    $nameInput.value = userEntries.fullName;
+    $locationInput.value = userEntries.location;
+    $bioInput.textContent = userEntries.bio;
+    }
   data.view = name;
 }
 }

@@ -20,6 +20,8 @@
         <h1 class="center-align">Code Journal</h1>
       </header>
       <main>
+
+
         <div id="edit-profile" data-view="edit-profile" class="hidden">
           <form class="flex-center" action="" method="GET" id="userForm">
             <div class="container">
@@ -31,13 +33,13 @@
               </div>
               <div class="col-half flex-column">
                 <label for="url" class="form-label">Avatar URL</label>
-                <input type="url" name="url" id="url" required>
+                <input type="url" name="url" id="url" required value=" ">
                 <label for="username" class="form-label">Username</label>
-                <input type="username" name="username" id="username" minlength="6" maxlength="18" required>
+                <input type="username" name="username" id="username" minlength="6" maxlength="18" required value=" ">
                 <label for="full-name" class="form-label">Full Name</label>
-                <input type="text" name="fullName" id="fullName" required>
+                <input type="text" name="fullName" id="fullName" required value=" ">
                 <label for="location" class="form-label">Location</label>
-                <input type="text" name="location" id="location" required>
+                <input type="text" name="location" id="location" required value " ">
               </div>
               <div class="col-full margin-twenty">
                <label for="bio" class="form-label">Bio</label>
@@ -49,6 +51,9 @@
             </div>
           </form>
         </div>
+
+
+
         <div data-view="profile" id="profile">
           <div class="flex-center">
             <div class="container">
