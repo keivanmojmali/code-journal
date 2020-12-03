@@ -52,7 +52,7 @@ input {
 }
 
 .header {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .margin-twenty {
@@ -79,8 +79,47 @@ input {
   justify-content: flex-end;
 }
 
+
+.hide {
+  display: none;
+}
+
+.side-by-side {
+  display: flex;
+}
+
+.profile-heading {
+  font-size: 17px;
+}
+
+.icon {
+  width: 25px;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.margin-auto {
+  margin: auto;
+}
+.margin-five {
+  margin: 5px;
+}
+
 @media only screen and (min-width: 660px) {
   .col-half {
     width: 40%;
   }
+  .margin-660 {
+    margin: 20px;
+  }
+
+.margin-auto {
+  margin: none;
+}
+.margin-five {
+  margin: 0px;
+}
+
 }

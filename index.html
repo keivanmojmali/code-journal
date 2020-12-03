@@ -20,7 +20,7 @@
         <h1 class="center-align">Code Journal</h1>
       </header>
       <main>
-        <div data-view="edit-profile">
+        <div id="edit-profile" data-view="edit-profile" class="hidden">
           <form class="flex-center" action="" method="GET" id="userForm">
             <div class="container">
               <div class="col-full margin-twenty">
@@ -48,6 +48,39 @@
               </div>
             </div>
           </form>
+        </div>
+        <div data-view="profile" id="profile">
+          <div class="flex-center">
+            <div class="container">
+              <div class="col-full">
+                <h1 id="userHeader" class="header">
+
+                </h1>
+              </div>
+              <div class="col-half">
+                <img  src="./images/placeholder-image-square.jpg" alt="User Profile Photo" class="full-width" id="userPhoto">
+              </div>
+              <div class="col-half flex-column">
+                <div class="side-by-side margin-auto">
+                  <img class="icon margin-660 margin-five" src="./images/user-icon.svg" alt="User Icon">
+                  <h2 class="profile-heading align-self-center" id="userSmall">
+
+                  </h2>
+                </div>
+                <div class="side-by-side margin-auto">
+                <img class="icon margin-twenty margin-660 margin-five" src="./images/location-icon.svg" alt="User Location Icone">
+                <h2 id="userLocation" class="profile-heading align-self-center">
+
+                </h2>
+                </div>
+                <div class="margin-auto">
+                  <p id="profileBio">
+
+                 </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <script src="js/data.js"></script>
