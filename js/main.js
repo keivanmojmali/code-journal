@@ -1,6 +1,8 @@
 var $avatarUrl = document.querySelector('#url');
 var $imgPlace = document.querySelector('#placeholder');
 var $contact = document.querySelector('#userForm');
+var $allDivs = document.querySelectorAll('div');
+var $dataView = document.querySelectorAll('[data-view]');
 
 
 $avatarUrl.addEventListener('input', function (e) {
@@ -22,3 +24,15 @@ document.addEventListener('submit', function (e) {
   $imgPlace.src = './images/placeholder-image-square.jpg';
 
 });
+
+
+function dataView(string) {
+  for(var i = 0; i < $dataView.length; i++) {
+    if($dataView[i].id !== string) {
+      $dataView[i].className = 'hidden';
+  } else {
+      $dataView[i].className = '';
+  }
+  data.view = name;
+}
+}

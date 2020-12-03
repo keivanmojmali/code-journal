@@ -12,6 +12,11 @@ var data = {
   entries: []
 };
 
+var $userHeader = document.querySelector('#userHeader');
+var $userPic = document.querySelector('#userPhoto');
+var $userSmall = document.querySelector('#userSmall');
+var $userLocation = document.querySelector('#userLocation');
+var $userBio = document.querySelector('#profileBio');
 var userEntries = {};
 var $savedProfiles = localStorage.getItem('user-profile');
 userEntries = JSON.parse($savedProfiles)
@@ -21,3 +26,12 @@ window.addEventListener('beforeunload', function (e) {
   localStorage.setItem('user-profile', $profiles);
 
 });
+
+function profile(user) {
+      $userHeader.textContent = user.username;
+      $userPic.src = user.url;
+      $userSmall.textContent = user.fullName;
+      $userLocation.textContent = user.location;
+      $userBio.textContent = user.bio;
+
+    }
