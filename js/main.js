@@ -16,6 +16,13 @@ var $userLocation = document.querySelector('#userLocation');
 var $userBio = document.querySelector('#profileBio');
 var $profileButton = document.querySelector('#profileButton');
 var $editProfileButton = document.querySelector('#editProfileButton');
+var $entryButton = document.querySelector('#entryButton');
+var $entries = document.querySelector('#entries');
+var $goToEntries = document.querySelector('#goToEntries');
+var $newEntryPhoto = document.querySelector('#newEntryPhoto');
+var $newEntryPhotoUrl = document.querySelector('#newUrl');
+var $journalEntry = document.querySelector('#journalEntry');
+
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -23,7 +30,7 @@ $avatarUrl.addEventListener('input', function (e) {
 });
 
 
-document.addEventListener('submit', function (e) {
+$contact.addEventListener('submit', function (e) {
   e.preventDefault();
   var url = $contact.elements.url.value;
   var username = $contact.elements.username.value;
@@ -74,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
     $profileShow.className = 'hidden';
+    $entryButton.className = 'hidden';
+    $entries.className = 'hidden';
   } else {
     $profileMake.className = 'hidden';
     $profileShow.className = '';
@@ -83,9 +92,32 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 document.addEventListener('click', function(e) {
   var localData = e.target.getAttribute('data-view');
-  if(localData !== 'profile' && localData !== 'edit-profile') {
+  if(localData !== 'profile' && localData !== 'edit-profile' && localData !== 'entries') {
+    console.log(localData);
     return;
   } else {
     dataView(localData);
   }
+})
+
+$goToEntries.addEventListener('click', function(e) {
+  dataView('newEntries');
+})
+
+$newEntryPhotoUrl.addEventListener('input',function(e) {
+  var photoValue = e.target.value;
+  $newEntryPhoto.src = photoValue;
+})
+
+$journalEntry.addEventListener('submit', function(e) {
+  e.preventDefault();
+  console.log('adasdasd')
+  var title = $journalEntry.elements.newTitle.value;
+  var image = $journalEntry.elements.newUrl.value;
+  var notes = $journalEntry.elements.newNotes.value;
+  var newEntryValues = {title,notes,image};
+  journal = newEntryValues;
+  $newEntryPhoto.src = './images/placeholder-image-square.jpg';
+  $journalEntry.reset();
+  dataView('entries');
 })

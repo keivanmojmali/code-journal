@@ -21,6 +21,7 @@
         <h1 class="inline-block">Code Journal</h1>
         <h1 class="inline-block button"> <a id="editProfileButton" data-view="edit-profile" class="" href="#">Edit Profile</a></h1>
         <h1 class="inline-block button"> <a id="profileButton" data-view="profile" class="" href="#">Profile</a></h1>
+        <h1 class="inline-block button"> <a id="entryButton" data-view="entries" class="" href="#">Entries</a></h1>
         </div>
       </header>
       <main>
@@ -54,12 +55,7 @@
           </form>
         </div>
 
-
-
-
-
-
-        <div data-view="profile" id="profile">
+        <div class="hidden" data-view="profile" id="profile">
           <div class="flex-center">
             <div class="container">
               <div class="col-full">
@@ -91,55 +87,43 @@
               </div>
             </div>
           </div>
-          <div class="hidden" id="newEntries" data-view="newEntries">
-            <div class="flex-center">
-              <div class="container">
-                <div class="col-full">
-                  <h1 id="entryHeader" class="header">
-                    New Entry
-                  </h1>
-                </div>
-                <div class="col-half">
-                  <img src="./images/placeholder-image-square.jpg" alt="Entry Image" class="full-width" id="entryPhoto">
-                </div>
-                <div class="col-half flex-column">
-                  <label for="entry-url" class="form-label">Image URL</label>
-                  <input type="url" name="entryUrl" id="entryUrl" required value=" ">
-                  <label for="entry-title" class="form-label">Title</label>
-                  <input type="text" name="entryTitle" id="entryTitle" required value=" ">
-                </div>
-                <div class="col-full margin-twenty">
-                  <label for="entry-notes" class="form-label">Notes</label>
-                  <textarea name="notes" id="entryNotes" cols="30" rows="10" class="full-width"></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="hidden" id="Entries" data-view="Entries">
-          <div class="flex-center">
+        <div class="hidden" id="newEntries" data-view="newEntries">
+          <form class="flex-center" action="" method="GET" id="journalEntry">
+                <div class="container">
+                  <div class="col-full alternate-container margin-twenty">
+                    <h1 id="" class="header">
+                      New Entry
+                    </h1>
+                  </div>
+                  <div class="col-half">
+                    <img src="./images/placeholder-image-square.jpg" alt="New Entry Image" class="full-width" id="newEntryPhoto">
+                  </div>
+                  <div class="col-half flex-column">
+                    <label for="new-entry-image" class="form-label">Image URL</label>
+                    <input type="url" name="newUrl" id="newUrl" required value=" ">
+                    <label for="new-title" class="form-label">Title</label>
+                    <input type="text" name="newTitle" id="newTitle" required value=" ">
+                  </div>
+                  <div class="col-full margin-twenty">
+                    <label for="new-notes" class="form-label">Notes</label>
+                    <textarea name="new-notes" id="newNotes" cols="30" rows="10" class="full-width"></textarea>
+                  </div>
+                  <div class="col-full align-end margin-twenty">
+                    <button class="submit" type="submit" id="newEntry">Save</button>
+                  </div>
+                </div>
+            </form>
+          </div>
+        <div class="hidden" data-view="entries" id="entries">
+          <div class="flex-container">
             <div class="container">
-              <div class="col-full">
-                <h1 id="entryHeader" class="header">
-                  Entries
-                </h1>
-              </div>
-              <div class="col-half">
-                <img src="./images/placeholder-image-square.jpg" alt="Entry Image" class="full-width" id="entryPhoto">
-              </div>
-              <div class="col-half flex-column">
-                <label for="posted-entry" class="form-label">Image URL</label>
-                <input type="url" name="postedUrl" id="postedUrl" required value=" ">
-                <label for="posted-title" class="form-label">Title</label>
-                <input type="text" name="postedTitle" id="postedTitle" required value=" ">
-              </div>
-              <div class="col-full margin-twenty">
-                <label for="posted-notes" class="form-label">Notes</label>
-                <textarea name="posted-notes" id="postedNotes" cols="30" rows="10" class="full-width"></textarea>
+              <div class="col-full alternate-container">
+                <h1 class="header align"> Entries</h1>
+                <button class="submit align-self-center" type="newEntry" id="goToEntries">New</button>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </main>
       <script src="js/data.js"></script>
