@@ -19,6 +19,8 @@ var $editProfileButton = document.querySelector('#editProfileButton');
 var $entryButton = document.querySelector('#entryButton');
 var $entries = document.querySelector('#entries');
 var $goToEntries = document.querySelector('#goToEntries');
+var $newEntryPhoto = document.querySelector('#newEntryPhoto');
+var $newEntryPhotoUrl = document.querySelector('#newUrl');
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -98,4 +100,9 @@ document.addEventListener('click', function(e) {
 
 $goToEntries.addEventListener('click', function(e) {
   dataView('newEntries');
+})
+
+$newEntryPhotoUrl.addEventListener('input',function(e) {
+  var photoValue = e.target.value;
+  $newEntryPhoto.src = photoValue;
 })
