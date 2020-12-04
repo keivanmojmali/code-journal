@@ -16,6 +16,9 @@ var $userLocation = document.querySelector('#userLocation');
 var $userBio = document.querySelector('#profileBio');
 var $profileButton = document.querySelector('#profileButton');
 var $editProfileButton = document.querySelector('#editProfileButton');
+var $entryButton = document.querySelector('#entryButton');
+var $entries = document.querySelector('#entries');
+var $goToEntries = document.querySelector('#goToEntries');
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -74,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
     $profileShow.className = 'hidden';
+    $entryButton.className = 'hidden';
+    $entries.className = 'hidden';
   } else {
     $profileMake.className = 'hidden';
     $profileShow.className = '';
@@ -83,9 +88,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 document.addEventListener('click', function(e) {
   var localData = e.target.getAttribute('data-view');
-  if(localData !== 'profile' && localData !== 'edit-profile') {
+  if(localData !== 'profile' && localData !== 'edit-profile' && localData !== 'entries') {
+    console.log(localData);
     return;
   } else {
     dataView(localData);
   }
+})
+
+$goToEntries.addEventListener('click', function(e) {
+  dataView('newEntries');
 })
