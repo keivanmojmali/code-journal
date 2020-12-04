@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 })
 
 document.addEventListener('click', function(e) {
-  console.log(event.target);
 
   var localData = e.target.getAttribute('data-view');
   if(localData !== 'profile' && localData !== 'edit-profile' && localData !== 'entries') {
