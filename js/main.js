@@ -87,7 +87,6 @@ function journalLoad(array){
 
 
 document.addEventListener('DOMContentLoaded', function (e) {
-    journalLoad($loadEntries);
 
   if (userEntries === null) {
     $profileMake.className = ' ';
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     $profileShow.className = '';
     profile(userEntries);
   }
+  journalLoad($loadEntries);
 })
 
 document.addEventListener('click', function(e) {
