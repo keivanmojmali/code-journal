@@ -27,7 +27,7 @@ window.addEventListener('beforeunload', function (e) {
 
 });
 
-$journalEntry.addEventListener('submit',function(e){
+window.addEventListener('beforeunload',function(e){
   var $jEntries = JSON.stringify(journal);
   localStorage.setItem('user-entries',$jEntries);
 })

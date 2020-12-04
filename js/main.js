@@ -77,6 +77,7 @@ function profile(user) {
 }
 
 document.addEventListener('DOMContentLoaded', function (e) {
+  journalAppend(journal);
   if (userEntries === null) {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
@@ -93,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 document.addEventListener('click', function(e) {
   var localData = e.target.getAttribute('data-view');
   if(localData !== 'profile' && localData !== 'edit-profile' && localData !== 'entries') {
-    console.log(localData);
     return;
   } else {
     dataView(localData);
@@ -129,18 +129,18 @@ function journalAppend(journal) {
   newLi.appendChild(div1);
   var jImage = document.createElement('img');
   jImage.setAttribute('src', journal.image);
+  jImage.setAttribute('class','full-width');
   div1.appendChild(jImage);
   var div2 = document.createElement('div');
   div2.setAttribute('class','col-half flex-column');
   newLi.appendChild(div2);
   var heading = document.createElement('h2');
   heading.setAttribute('class','profile-heading')
-  heading,textContent = journal.title;
+  heading.textContent = journal.title;
   div2.appendChild(heading);
   var pBody = document.createElement('p');
   pBody.textContent = journal.notes;
   div2.appendChild(pBody);
   var position = document.querySelector('#entriesUl');
   position.prepend(newLi);
-
 }
