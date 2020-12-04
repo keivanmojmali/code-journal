@@ -77,13 +77,19 @@ function profile(user) {
 
 }
 
-function journalLoad(array){
-  for(var i = 0; i < array.length; i++) {
-    journalAppend(array[i]);
+function entryAppend(object) {
+  var newAppend = journalAppend(object);
+  var position = document.querySelector('#entriesUl');
+  position.prepend(newAppend);
+
+}
+
+function journalLoad(array) {
+  for (var i = 0; i < array.length; i++) {
+    entryAppend(array[i]);
   }
   return;
 }
-
 
 
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -127,7 +133,7 @@ $journalEntry.addEventListener('submit', function(e) {
   var image = $journalEntry.elements.newUrl.value;
   var notes = $journalEntry.elements.newNotes.value;
   var newEntryValues = {title,notes,image};
-  journalAppend(newEntryValues);
+  entryAppend(newEntryValues);
   journal.push(newEntryValues);
   $newEntryPhoto.src = './images/placeholder-image-square.jpg';
   $journalEntry.reset();
@@ -154,6 +160,6 @@ function journalAppend(journal) {
   var pBody = document.createElement('p');
   pBody.textContent = journal.notes;
   div2.appendChild(pBody);
-  var position = document.querySelector('#entriesUl');
-  position.prepend(newLi);
+  return newLi;
+
 }
