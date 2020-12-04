@@ -111,7 +111,6 @@ $newEntryPhotoUrl.addEventListener('input',function(e) {
 
 $journalEntry.addEventListener('submit', function(e) {
   e.preventDefault();
-  console.log('adasdasd')
   var title = $journalEntry.elements.newTitle.value;
   var image = $journalEntry.elements.newUrl.value;
   var notes = $journalEntry.elements.newNotes.value;
@@ -121,3 +120,27 @@ $journalEntry.addEventListener('submit', function(e) {
   $journalEntry.reset();
   dataView('entries');
 })
+
+function journalAppend(journal) {
+  var newLi = document.createElement('li');
+  newLi.setAttribute('class','journal-entry');
+  var div1 = document.createElement('div');
+  div1.setAttribute('class', 'col-half');
+  newLi.appendChild(div1);
+  var jImage = document.createElement('img');
+  jImage.setAttribute('src', journal.image);
+  div1.appendChild(jImage);
+  var div2 = document.createElement('div');
+  div2.setAttribute('class','col-half flex-column');
+  newLi.appendChild(div2);
+  var heading = document.createElement('h2');
+  heading.setAttribute('class','profile-heading')
+  heading,textContent = journal.title;
+  div2.appendChild(heading);
+  var pBody = document.createElement('p');
+  pBody.textContent = journal.notes;
+  div2.appendChild(pBody);
+  var position = document.querySelector('#entriesUl');
+  position.prepend(newLi);
+
+}
