@@ -13,9 +13,9 @@ var data = {
 };
 
 var $journalEntry = document.querySelector('#journalEntry');
-var journal = {};
+var journal =[];
 var $savedEntries = localStorage.getItem('user-entries');
-journal = JSON.parse($savedEntries);
+var $loadEntries = JSON.parse($savedEntries);
 
 var userEntries = {};
 var $savedProfiles = localStorage.getItem('user-profile');

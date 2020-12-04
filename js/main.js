@@ -22,7 +22,7 @@ var $goToEntries = document.querySelector('#goToEntries');
 var $newEntryPhoto = document.querySelector('#newEntryPhoto');
 var $newEntryPhotoUrl = document.querySelector('#newUrl');
 var $journalEntry = document.querySelector('#journalEntry');
-
+var $newEntrySave = document.querySelector('#newEntry');
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -44,6 +44,7 @@ $contact.addEventListener('submit', function (e) {
   profile(values);
   dataView('profile');
   $profileButton.className = '';
+  $entryButton.className = '';
 });
 
 
@@ -76,8 +77,18 @@ function profile(user) {
 
 }
 
+function journalLoad(array){
+  for(var i = 0; i < array.length; i++) {
+    journalAppend(array[i]);
+  }
+  return;
+}
+
+
+
 document.addEventListener('DOMContentLoaded', function (e) {
-  journalAppend(journal);
+    journalLoad($loadEntries);
+
   if (userEntries === null) {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
@@ -92,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
 })
 
 document.addEventListener('click', function(e) {
+  console.log(event.target);
+
   var localData = e.target.getAttribute('data-view');
   if(localData !== 'profile' && localData !== 'edit-profile' && localData !== 'entries') {
     return;
@@ -115,7 +128,8 @@ $journalEntry.addEventListener('submit', function(e) {
   var image = $journalEntry.elements.newUrl.value;
   var notes = $journalEntry.elements.newNotes.value;
   var newEntryValues = {title,notes,image};
-  journal = newEntryValues;
+  journalAppend(newEntryValues);
+  journal.push(newEntryValues);
   $newEntryPhoto.src = './images/placeholder-image-square.jpg';
   $journalEntry.reset();
   dataView('entries');
