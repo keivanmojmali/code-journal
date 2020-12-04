@@ -111,10 +111,11 @@ $newEntryPhotoUrl.addEventListener('input',function(e) {
 
 $journalEntry.addEventListener('submit', function(e) {
   e.preventDefault();
+  console.log('adasdasd')
   var title = $journalEntry.elements.newTitle.value;
-  var journalImage = $journalEntry.elements.newUrl.value;
+  var image = $journalEntry.elements.newUrl.value;
   var notes = $journalEntry.elements.newNotes.value;
-  var newEntryValues = {title,notes,journalImage};
+  var newEntryValues = {title,notes,image};
   journal = newEntryValues;
   $newEntryPhoto.src = './images/placeholder-image-square.jpg';
   $journalEntry.reset();
