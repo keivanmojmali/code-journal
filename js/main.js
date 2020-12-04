@@ -21,6 +21,8 @@ var $entries = document.querySelector('#entries');
 var $goToEntries = document.querySelector('#goToEntries');
 var $newEntryPhoto = document.querySelector('#newEntryPhoto');
 var $newEntryPhotoUrl = document.querySelector('#newUrl');
+var $journalEntry = document.querySelector('#journalEntry');
+
 
 $avatarUrl.addEventListener('input', function (e) {
   var $newUrl = e.target.value;
@@ -28,7 +30,7 @@ $avatarUrl.addEventListener('input', function (e) {
 });
 
 
-document.addEventListener('submit', function (e) {
+$contact.addEventListener('submit', function (e) {
   e.preventDefault();
   var url = $contact.elements.url.value;
   var username = $contact.elements.username.value;
@@ -105,4 +107,16 @@ $goToEntries.addEventListener('click', function(e) {
 $newEntryPhotoUrl.addEventListener('input',function(e) {
   var photoValue = e.target.value;
   $newEntryPhoto.src = photoValue;
+})
+
+$journalEntry.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var title = $journalEntry.elements.newTitle.value;
+  var journalImage = $journalEntry.elements.newUrl.value;
+  var notes = $journalEntry.elements.newNotes.value;
+  var newEntryValues = {title,notes,journalImage};
+  journal = newEntryValues;
+  $newEntryPhoto.src = './images/placeholder-image-square.jpg';
+  $journalEntry.reset();
+  dataView('entries');
 })

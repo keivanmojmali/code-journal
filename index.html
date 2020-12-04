@@ -89,34 +89,35 @@
           </div>
         </div>
         <div class="hidden" id="newEntries" data-view="newEntries">
-          <div class="flex-center">
-            <div class="container">
-              <div class="col-full alternate-container margin-twenty">
-                <h1 id="" class="header">
-                  New Entry
-                </h1>
+          <form class="flex-center" action="" method="GET" id="journalEntry">
+              <div class="flex-center">
+                <div class="container">
+                  <div class="col-full alternate-container margin-twenty">
+                    <h1 id="" class="header">
+                      New Entry
+                    </h1>
+                  </div>
+                  <div class="col-half">
+                    <img src="./images/placeholder-image-square.jpg" alt="New Entry Image" class="full-width" id="newEntryPhoto">
+                  </div>
+                  <div class="col-half flex-column">
+                    <label for="new-entry-image" class="form-label">Image URL</label>
+                    <input type="url" name="newUrl" id="newUrl" required value=" ">
+                    <label for="new-title" class="form-label">Title</label>
+                    <input type="text" name="newTitle" id="newTitle" required value=" ">
+                  </div>
+                  <div class="col-full margin-twenty">
+                    <label for="new-notes" class="form-label">Notes</label>
+                    <textarea name="new-notes" id="newNotes" cols="30" rows="10" class="full-width"></textarea>
+                  </div>
+                  <div class="col-full align-end margin-twenty">
+                    <button class="submit" type="submit" id="newEntry">Save</button>
+                  </div>
+                </div>
               </div>
-              <div class="col-half">
-                <img src="./images/placeholder-image-square.jpg" alt="New Entry Image" class="full-width" id="newEntryPhoto">
-              </div>
-              <div class="col-half flex-column">
-                <label for="new-entry-image" class="form-label">Image URL</label>
-                <input type="url" name="newUrl" id="newUrl" required value=" ">
-                <label for="new-title" class="form-label">Title</label>
-                <input type="text" name="newTitle" id="newTitle" required value=" ">
-              </div>
-              <div class="col-full margin-twenty">
-                <label for="new-notes" class="form-label">Notes</label>
-                <textarea name="new-notes" id="newNotes" cols="30" rows="10" class="full-width"></textarea>
-              </div>
-              <div class="col-full align-end margin-twenty">
-                <button class="submit" type="save" id="newEntry">Save</button>
-              </div>
-            </div>
+            </form>
           </div>
-        </div>
-        </div>
-        <div data-view="entries" id="entries">
+        <div class="hidden" data-view="entries" id="entries">
           <div class="flex-container">
             <div class="container">
               <div class="col-full alternate-container">

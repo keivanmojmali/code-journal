@@ -12,6 +12,8 @@ var data = {
   entries: []
 };
 
+
+var journal = {};
 var userEntries = {};
 var $savedProfiles = localStorage.getItem('user-profile');
 userEntries = JSON.parse($savedProfiles)
