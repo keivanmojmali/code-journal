@@ -12,22 +12,20 @@ var data = {
   entries: []
 };
 
-var $journalEntry = document.querySelector('#journalEntry');
-var journal =[];
-var $savedEntries = localStorage.getItem('user-entries');
-var $loadEntries = JSON.parse($savedEntries);
 
-var userEntries = {};
+var $savedEntries = localStorage.getItem('user-entries');
+data.entries.push(JSON.parse($savedEntries));
+
 var $savedProfiles = localStorage.getItem('user-profile');
-userEntries = JSON.parse($savedProfiles);
+data.profile = JSON.parse($savedProfiles);
 
 window.addEventListener('beforeunload', function (e) {
-  var $profiles = JSON.stringify(userEntries);
+  var $profiles = JSON.stringify(data.profile);
   localStorage.setItem('user-profile', $profiles);
 
 });
 
 window.addEventListener('beforeunload',function(e){
-  var $jEntries = JSON.stringify(journal);
+  var $jEntries = JSON.stringify(data.entries);
   localStorage.setItem('user-entries',$jEntries);
 })

@@ -38,7 +38,7 @@ $contact.addEventListener('submit', function (e) {
   var location = $contact.elements.location.value;
   var bio = $contact.elements.bio.value;
   var values = { username, fullName, location, url, bio };
-  userEntries = values;
+  data.profile = values;
   $contact.reset();
   $imgPlace.src = './images/placeholder-image-square.jpg';
   profile(values);
@@ -56,12 +56,12 @@ function dataView(string) {
       $dataView[i].className = '';
   }
     if ($dataView[i] !== 'edit-profile') {
-    $imgPlace.src = userEntries.url;
-    $avatarUrl.value = userEntries.url;
-    $userInput.value = userEntries.username;
-    $nameInput.value = userEntries.fullName;
-    $locationInput.value = userEntries.location;
-    $bioInput.textContent = userEntries.bio;
+      $imgPlace.src = data.profile.url;
+      $avatarUrl.value = data.profile.url;
+      $userInput.value = data.profile.username;
+      $nameInput.value = data.profile.fullName;
+      $locationInput.value = data.profile.location;
+      $bioInput.textContent = data.profile.bio;
     }
   data.view = name;
 }
@@ -94,7 +94,7 @@ function journalLoad(array) {
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
-  if (userEntries === null) {
+  if (data.profile.username === null) {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
     $profileShow.className = 'hidden';
@@ -103,9 +103,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
   } else {
     $profileMake.className = 'hidden';
     $profileShow.className = '';
-    profile(userEntries);
+    profile(data.profile);
   }
-  journalLoad($loadEntries);
+  journalLoad(data.entries);
+
 })
 
 document.addEventListener('click', function(e) {
@@ -134,7 +135,7 @@ $journalEntry.addEventListener('submit', function(e) {
   var notes = $journalEntry.elements.newNotes.value;
   var newEntryValues = {title,notes,image};
   entryAppend(newEntryValues);
-  journal.push(newEntryValues);
+  data.entries.push(newEntryValues);
   $newEntryPhoto.src = './images/placeholder-image-square.jpg';
   $journalEntry.reset();
   dataView('entries');
