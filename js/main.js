@@ -94,7 +94,7 @@ function journalLoad(array) {
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
-  if (data.profile.username === null) {
+  if (data.profile.username === '') {
     $profileMake.className = ' ';
     $profileButton.className = 'hidden';
     $profileShow.className = 'hidden';
@@ -105,8 +105,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
     $profileShow.className = '';
     profile(data.profile);
   }
-  journalLoad(data.entries);
 
+  if(data.entries !== null) {
+  journalLoad(data.entries);
+  }
 })
 
 document.addEventListener('click', function(e) {

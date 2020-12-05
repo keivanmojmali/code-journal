@@ -13,19 +13,13 @@ var data = {
 };
 
 
-var $savedEntries = localStorage.getItem('user-entries');
-data.entries.push(JSON.parse($savedEntries));
 
-var $savedProfiles = localStorage.getItem('user-profile');
-data.profile = JSON.parse($savedProfiles);
+
+  var $savedProfiles = localStorage.getItem('data');
+  data = JSON.parse($savedProfiles);
+
 
 window.addEventListener('beforeunload', function (e) {
-  var $profiles = JSON.stringify(data.profile);
-  localStorage.setItem('user-profile', $profiles);
-
+  var $data = JSON.stringify(data);
+  localStorage.setItem('data', $data);
 });
-
-window.addEventListener('beforeunload',function(e){
-  var $jEntries = JSON.stringify(data.entries);
-  localStorage.setItem('user-entries',$jEntries);
-})
