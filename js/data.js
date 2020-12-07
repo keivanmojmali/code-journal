@@ -13,13 +13,13 @@ var data = {
 };
 
 
-var journal = {};
-var userEntries = {};
-var $savedProfiles = localStorage.getItem('user-profile');
-userEntries = JSON.parse($savedProfiles)
+
+
+  var $savedProfiles = localStorage.getItem('data');
+  data = JSON.parse($savedProfiles);
+
 
 window.addEventListener('beforeunload', function (e) {
-  var $profiles = JSON.stringify(userEntries);
-  localStorage.setItem('user-profile', $profiles);
-
+  var $data = JSON.stringify(data);
+  localStorage.setItem('data', $data);
 });

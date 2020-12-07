@@ -36,6 +36,7 @@ input {
   top: -15%;
 }
 
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -154,4 +155,28 @@ input {
   height: 28px;
   font-size: 14px;
   font-family: 'Oswald', sans-serif;
+}
+
+
+.journal-entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+
+
+@media only screen and (min-width:660px) {
+  .journal-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
 }
